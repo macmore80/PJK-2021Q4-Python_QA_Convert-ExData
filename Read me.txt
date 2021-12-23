@@ -1,0 +1,24 @@
+ * File name : Converting_exported_dataset_suakit.py
+ * Goal : 
+SUAKIT 프로젝트에서 내보낸 데이터의 전체 이름에는 _label 또는 _mask와 같은 키워드가 포함되어 있습니다.
+따라서 툴에 외부 데이터를 가져오기 위해서는 해당 키워드를 제거해야 합니다.
+SUAKIT에서 모든 데이터를 내보내는 경우 첫 번째 예제 코드는 _label 또는 _mask와 같은 키워드를 제거합니다. 그러나 그렇게 하려면 모든 파일 폴더의 올바른 경로를 수정해야 합니다.
+저는 실제로 폴더의 모든 파일 이름에 대한 키워드를 제거하기 위해 간단한 두 번째 예제 코드를 추천합니다.
+두 번째 예제 코드는 두 가지 유형의 함수를 정의합니다.
+- 폴더의 파일이 이미지인 경우 'RemovedTagImage(입력 경로, 출력 경로, 키워드 제거)'를 사용해야 합니다.
+- 폴더의 파일이 JSON이면 'RemovedTagJson(입력 경로, 출력 경로, 키워드 제거)'을 사용해야 합니다.
+
+The full name of the exported data from SUAKIT project included any keyword like _label or _mask.
+So, we need to remove those keyword to import external data on tool.
+If you export all data from SUAKIT, first example code will remove those keyword like _label or _mask. But to do that you have to modify the entering proper path of all file folder.
+I actually recommend simple second example code to apply removing any keyword about all file name in folder.
+The second example code define two type of functions.
+ - If files in folder were images, You have to use 'RemovedTagImage(input-path, output-path, remove keyword)'.
+ - If files in folder were JSON, you have to use 'RemovedTagJson(input-path, output-path, remove keyword)'.
+
+[example code] 
+#2021.12.15 - This modified code removes a selected word at Json file name for checking  CLIP test case.
+inpath_json2 = 'D:\\_5_CLIP_QA_test-case\\Making-External_Multi-label-using-suakit\\External_Label_Bad-Region-O_BC_PNG-JSON\\JSON\\*.json'
+outpath_json2 = 'D:\\_5_CLIP_QA_test-case\\Making-External_Multi-label-using-suakit\\External_Label_Bad-Region-O_BC_PNG-JSON\\JSON'
+RemovedTagJson(inpath_json2, outpath_json2, '_label')
+
